@@ -19,19 +19,22 @@ namespace Сумка_богини_Флакс
 
         private bool IsNumberInRange(int roll)
         {
-            return roll >= 0 && roll <= 100;
+            return roll >= 1 && roll <= 100;
         }
 
         public void btn_OpenBagClick(object sender, EventArgs e)
         {
-            int roll;
+            int roll = -1;
+            bool isNumber = true;
 
             if (textBox_main.Text == string.Empty)
             {
                 roll = new Random().Next(1, 100);
             }
-
-            bool isNumber = int.TryParse(textBox_main.Text, out roll);
+            else
+            {
+                isNumber = int.TryParse(textBox_main.Text, out roll);
+            }
 
             if (!IsNumberInRange(roll) || !isNumber)
             {
