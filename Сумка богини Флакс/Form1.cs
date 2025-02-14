@@ -17,28 +17,26 @@ namespace Сумка_богини_Флакс
             MessageBox.Show(this, "Введите число от 1 до 100", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private bool IsNumberInRange(int roll)
+        {
+            return roll >= 0 && roll <= 100;
+        }
+
         public void btn_OpenBagClick(object sender, EventArgs e)
         {
-            Random random = new Random();
             int roll;
 
             if (textBox_main.Text == string.Empty)
             {
-                roll = random.Next(1, 100);
+                roll = new Random().Next(1, 100);
             }
 
-            bool is_number = int.TryParse(textBox_main.Text, out roll);
-            if (is_number == false)
+            bool isNumber = int.TryParse(textBox_main.Text, out roll);
+
+            if (!IsNumberInRange(roll) || !isNumber)
             {
                 ShowErrorMessage();
                 return;
-            }
-
-            if (roll < 1 || roll > 100)
-            {
-                ShowErrorMessage();
-                return;
-
             }
 
             label2.Font = new Font("Microsoft Sans Serif", 12);

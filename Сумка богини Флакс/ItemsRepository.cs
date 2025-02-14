@@ -2,7 +2,7 @@
 {
     public static class ItemsRepository
     {
-        public static string[] Items = new string[100]
+        public static string[] Items = new string[]
         {
             "1. Забирает случайный предмет из определенного списка у открывшего сумку и исчезает",
             "2. Две игральные кости",
